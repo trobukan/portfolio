@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: portfolio
+    name: trobukan 
     runtime: go
     plan: free
     buildCommand: go build -tags netgo -ldflags '-s -w' -o app .
