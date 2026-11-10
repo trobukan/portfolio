@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ .Name }} — Portafolio</title>
+	<style>
+		body {
+			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+			background-color: #ffffff;
+			color: #222034;
+			max-width: 680px;
+			margin: 0 auto;
+			padding: 3rem 1.5rem;
+			line-height: 1.6;
+		}
+
+		header {
+			margin-bottom: 2.5rem;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			color: #222034;
+			margin: 0 0 0.3rem 0;
+		}
+
+		.tagline {
+			color: #7683d6;
+			font-size: 0.95rem;
+			margin: 0;
+			font-weight: bold;
+		}
+
+		section {
+			margin-bottom: 2rem;
+		}
+
+		h2 {
+			font-size: 1.1rem;
+			color: #222034;
+			border-bottom: 1px solid #dcdce6;
+			padding-bottom: 0.4rem;
+			margin-bottom: 1rem;
+		}
+
+		ul {
+			padding-left: 1.2rem;
+			margin: 0;
+		}
+
+		li {
+			margin-bottom: 0.5rem;
+		}
+
+		.project-item {
+			margin-bottom: 1.2rem;
+		}
+
+		.project-item a {
+			color: #7683d6;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		.project-item a:hover {
+			text-decoration: underline;
+		}
+
+		p {
+			margin: 0 0 0.5rem 0;
+			color: #222034;
+		}
+
+		footer {
+			margin-top: 4rem;
+			font-size: 0.8rem;
+			color: #55536b;
+			border-top: 1px solid #dcdce6;
+			padding-top: 1rem;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1>{{ .Name }}</h1>
+		<p class="tagline">{{ .Tagline }}</p>
+	</header>
+
+	<section>
+		<h2>// sobre_mí</h2>
+		<p>{{ .Bio }}</p>
+	</section>
+
+	<section>
+		<h2>// objetivo</h2>
+		<p>{{ .Goal }}</p>
+	</section>
+
+	<section>
+		<h2>// proyectos</h2>
+		{{ range .Projects }}
+		<div class="project-item">
+			<p><a href="{{ .URL }}" target="_blank">{{ .Name }} &nearr;</a></p>
+			<p style="font-size: 0.9rem; color: #55536b;">{{ .Description }}</p>
+		</div>
+		{{ end }}
+	</section>
+
+	<section>
+		<h2>// contacto</h2>
+		<ul>
+			<li><strong>Email:</strong> trobukan@proton.me</li>
+			<li><strong>GitHub:</strong> <a href="https://github.com/trobukan">trobukan</a></li>
+	</section>
+	<footer>
+		<p>Hecho con Go (net/http + html/template).</p>
+	</footer>
+</body>
+
+</html>
